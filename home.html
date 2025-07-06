@@ -5,181 +5,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Obed Nyangena | Data Analyst</title>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #d7ecff;
-      color: #083b66;
-      margin: 0;
-      padding: 0;
-    }
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-      background-color: #ffffff;
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 3rem auto;
-      box-shadow: 6px 6px 0 #083b66;
-    }
-    .hero h2 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-    }
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: #ffffff;
-      border: 2px solid #083b66;
-      border-radius: 8px;
-      padding: 2rem;
-      width: 300px;
-      text-align: center;
-      box-shadow: 4px 4px 0 #083b66;
-    }
-    .card h3 {
-      margin-top: 0;
-    }
-    .card p {
-      font-size: 1rem;
-      margin: 1rem 0;
-    }
-    .card button {
-      background: #083b66;
-      color: #ffffff;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    form {
-      display: none;
-      background: #ffffff;
-      border: 2px solid #083b66;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: 2rem auto;
-      box-shadow: 4px 4px 0 #083b66;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #083b66;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    button.submit-btn {
-      background: #083b66;
-      color: #ffffff;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .success-message {
-      color: green;
-      margin-top: 1rem;
-      font-weight: 600;
-    }
+    body { font-family: 'Inter', sans-serif; background-color: #d7ecff; color: #083b66; margin: 0; }
+    header { background: #083b66; color: white; padding: 1.5rem 2rem; display: flex; justify-content: space-between; }
+    header h1 { margin: 0; font-size: 1.8rem; font-weight: 800; }
+    nav a { color: white; margin-left: 1.5rem; text-decoration: none; font-weight: 500; }
+    nav a:hover { opacity: 0.7; }
+    .hero { text-align: center; padding: 6rem 2rem; background: #fff; border-radius: 12px; max-width: 800px; margin: 3rem auto; box-shadow: 6px 6px 0 #083b66; }
+    .hero h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; }
+    .sections { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 4rem 2rem; }
+    .card { background: #fff; border-radius: 12px; padding: 2rem; max-width: 320px; box-shadow: 4px 4px 0 #083b66; border-top: 4px solid #083b66; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
+    .card p { font-size: 1rem; margin-bottom: 1rem; }
+    .btn { background: #083b66; color: #fff; padding: 0.6rem 1.2rem; border: none; border-radius: 4px; text-decoration: none; font-weight: 600; cursor: pointer; }
+    .btn:hover { opacity: 0.85; }
+    .popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+    .popup-content { background: #fff; padding: 2rem; border-radius: 8px; max-width: 500px; box-shadow: 4px 4px 0 #083b66; }
+    .popup-content label { display: block; margin: 0.5rem 0 0.2rem; font-weight: 600; }
+    .popup-content input, .popup-content textarea { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #083b66; border-radius: 4px; }
+    .popup-content button { background: #083b66; color: #fff; padding: 0.7rem 1.5rem; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; }
+    .success-message { color: green; font-weight: 600; }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Obed Nyangena</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
   <section class="hero">
     <h2>In an economy shaped by data,<br />I uncover trends and patterns that matter.</h2>
     <p>Data Analyst | Policy Consultant | Visual Storyteller</p>
   </section>
 
-  <div class="cards">
+  <section class="sections">
     <div class="card">
       <h3>Consulting</h3>
-      <p>Data-driven economic and policy consulting for organizations, governments, and nonprofits.</p>
-      <button onclick="showForm('consultingForm')">Request Consulting</button>
+      <p>Data-driven economic and policy consulting for organizations and government.</p>
+      <button class="btn" onclick="openPopup('consulting')">Request Consulting</button>
     </div>
     <div class="card">
       <h3>Speaking</h3>
-      <p>Clear, engaging presentations and talks on data, economics, and policy topics for diverse audiences.</p>
-      <button onclick="showForm('speakingForm')">Book Speaking</button>
+      <p>Clear and engaging presentations for panels, lectures, and live sessions.</p>
+      <button class="btn" onclick="openPopup('speaking')">Book Speaking</button>
     </div>
     <div class="card">
       <h3>Collaborations</h3>
-      <p>Open to impactful research and policy projects with analysts, economists, and global institutions.</p>
-      <button onclick="showForm('collabForm')">Propose Collaboration</button>
+      <p>Joint research and policy projects with global partners and institutions.</p>
+      <button class="btn" onclick="openPopup('collab')">Propose Collaboration</button>
+    </div>
+  </section>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3 id="popup-title"></h3>
+      <form id="popupForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="submitForm(event)">
+        <label>Your Email:</label>
+        <input type="email" name="email" required>
+        <label>Subject:</label>
+        <input type="text" name="subject" required>
+        <label>Message:</label>
+        <textarea name="message" required></textarea>
+        <button type="submit">Send</button>
+        <p class="success-message" id="successMsg"></p>
+      </form>
     </div>
   </div>
 
-  <form id="consultingForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'consultingSuccess')">
-    <h2>Request Consulting</h2>
-    <label>Your Email:</label>
-    <input type="email" name="email" required>
-    <label>Subject:</label>
-    <input type="text" name="subject" required>
-    <label>Message:</label>
-    <textarea name="message" required></textarea>
-    <button class="submit-btn" type="submit">Send</button>
-    <p id="consultingSuccess" class="success-message"></p>
-  </form>
-
-  <form id="speakingForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'speakingSuccess')">
-    <h2>Book Speaking</h2>
-    <label>Your Email:</label>
-    <input type="email" name="email" required>
-    <label>Subject:</label>
-    <input type="text" name="subject" required>
-    <label>Message:</label>
-    <textarea name="message" required></textarea>
-    <button class="submit-btn" type="submit">Send</button>
-    <p id="speakingSuccess" class="success-message"></p>
-  </form>
-
-  <form id="collabForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'collabSuccess')">
-    <h2>Propose Collaboration</h2>
-    <label>Your Email:</label>
-    <input type="email" name="email" required>
-    <label>Subject:</label>
-    <input type="text" name="subject" required>
-    <label>Message:</label>
-    <textarea name="message" required></textarea>
-    <button class="submit-btn" type="submit">Send</button>
-    <p id="collabSuccess" class="success-message"></p>
-  </form>
-
   <script>
-    function showForm(formId) {
-      document.getElementById('consultingForm').style.display = 'none';
-      document.getElementById('speakingForm').style.display = 'none';
-      document.getElementById('collabForm').style.display = 'none';
-      document.getElementById(formId).style.display = 'block';
+    function openPopup(type) {
+      document.getElementById('popup').style.display = 'flex';
+      let title = '';
+      if(type === 'consulting') title = 'Request Consulting';
+      if(type === 'speaking') title = 'Book Speaking';
+      if(type === 'collab') title = 'Propose Collaboration';
+      document.getElementById('popup-title').innerText = title;
     }
-    function handleSubmit(event, successId) {
+    window.onclick = function(event) {
+      if (event.target.id === 'popup') {
+        document.getElementById('popup').style.display = 'none';
+      }
+    }
+    function submitForm(event) {
       event.preventDefault();
       const form = event.target;
-      const formData = new FormData(form);
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
+      const data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data, headers: {'Accept': 'application/json'} })
+      .then(response => {
         if (response.ok) {
-          document.getElementById(successId).innerText = "Message has been sent successfully. Obed will be reverting soon.";
+          document.getElementById('successMsg').innerText = 'Message sent successfully. Obed will be reverting soon.';
           form.reset();
         }
       });
