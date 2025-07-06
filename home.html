@@ -8,182 +8,59 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #d7ecff; /* Britannica background */
-      color: #083b66; /* Britannica deep navy for text */
-      line-height: 1.6;
-    }
-
-    header {
-      background-color: #083b66; /* Navy header */
-      color: #ffffff;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
-
-    nav a {
-      color: #ffffff;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.3s ease;
-    }
-
-    nav a:hover {
-      opacity: 0.7; /* Subtle fade, no new color */
-    }
-
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-      background-color: #ffffff; /* White card area */
-      border-radius: 12px;
-      max-width: 800px;
-      margin: 3rem auto;
-      box-shadow: 6px 6px 0 #083b66; /* Navy shadow */
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      color: #083b66;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #083b66;
-    }
-
-    .sections {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 4rem 2rem;
-      gap: 2rem;
-      background-color: #d7ecff; /* Match page background */
-    }
-
-    .card {
-      background: #ffffff; /* White card */
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 320px;
-      box-shadow: 4px 4px 0 #083b66; /* Navy shadow */
-      text-align: left;
-      transition: transform 0.3s ease;
-      border-top: 4px solid #083b66; /* Navy border top */
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 6px 6px 0 #083b66;
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      color: #083b66;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background-color: #083b66; /* Navy button */
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: opacity 0.3s ease;
-    }
-
-    .btn:hover {
-      opacity: 0.85; /* Slight fade, same navy */
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #083b66; /* Navy footer */
-      color: #ffffff;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 1rem;
-      }
-
-      .hero h2 {
-        font-size: 2rem;
-      }
-
-      .card {
-        max-width: 100%;
-      }
-    }
+    body {margin:0; font-family:'Inter',sans-serif; background:#d7ecff; color:#083b66;}
+    header {background:#083b66; color:#fff; padding:1.5rem 2rem; display:flex; justify-content:space-between; align-items:center;}
+    header h1 {margin:0; font-size:1.8rem; font-weight:800;}
+    nav a {color:#fff; margin-left:1.5rem; text-decoration:none; font-weight:500; transition:opacity .3s ease;}
+    nav a:hover {opacity:.7;}
+    .hero {text-align:center; padding:6rem 2rem; background:#fff; border-radius:12px; max-width:800px; margin:3rem auto; box-shadow:6px 6px 0 #083b66;}
+    .hero h2 {font-size:2.8rem; font-weight:800; margin-bottom:1rem; color:#083b66;}
+    .hero p {font-size:1.2rem; color:#083b66;}
+    .sections {display:flex; flex-wrap:wrap; justify-content:center; padding:4rem 2rem; gap:2rem;}
+    .card {background:#fff; border-radius:12px; padding:2rem; max-width:320px; box-shadow:6px 6px 0 #083b66; text-align:left; border-left:6px solid #083b66;}
+    .card h3, .card p {color:#083b66;}
+    .btn {display:inline-block; margin-top:1rem; padding:0.6rem 1.2rem; background:#083b66; color:#fff; text-decoration:none; border-radius:4px; font-weight:600; transition:opacity .3s ease;}
+    .btn:hover {opacity:.85;}
+    footer {text-align:center; padding:2rem; background:#083b66; color:#fff; font-size:.9rem;}
+    .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;}
+    .modal-content {background:#fff; padding:2rem; border-radius:8px; max-width:400px; width:100%;}
+    .modal-content h4 {margin-top:0;}
+    .modal-content input, .modal-content textarea {width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ccc; border-radius:4px;}
+    .modal-content input[readonly] {background:#eee;}
+    .close {float:right; cursor:pointer; font-weight:800;}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Obed Nyangena</h1>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="toolset.html">Toolset</a>
-      <a href="projects.html">Projects</a>
-      <a href="publications.html">Publications</a>
-      <a href="letters.html">Letters</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>In an economy shaped by data,<br />I uncover trends and patterns that matter.</h2>
-    <p>Data Analyst | Policy Consultant | Visual Storyteller</p>
-  </section>
-
+  <header><h1>Obed Nyangena</h1><nav><a href="home.html">Home</a><a href="about.html">About</a><a href="toolset.html">Toolset</a><a href="projects.html">Projects</a><a href="publications.html">Publications</a><a href="letters.html">Letters</a><a href="#">Contact</a></nav></header>
+  <section class="hero"><h2>In an economy shaped by data,<br />I uncover trends and patterns that matter.</h2><p>Data Analyst | Policy Consultant | Visual Storyteller</p></section>
   <section class="sections">
-    <div class="card">
-      <h3>Consulting</h3>
-      <p>I offer data-driven economic and policy consulting for organizations, government entities, and nonprofits.</p>
-      <a href="#" class="btn">Request Consulting</a>
-    </div>
-    <div class="card">
-      <h3>Speaking</h3>
-      <p>I simplify complex topics for live audiences, from conference panels to guest lectures and online sessions.</p>
-      <a href="#" class="btn">Book Speaking</a>
-    </div>
-    <div class="card">
-      <h3>Collaborations</h3>
-      <p>I'm open to impactful research and policy work with analysts, economists, and institutions globally.</p>
-      <a href="#" class="btn">Propose Collaboration</a>
-    </div>
+    <div class="card consulting-card"><h3>Consulting</h3><p>I offer data-driven economic and policy consulting for organizations, government entities, and nonprofits.</p><a href="#" class="btn" id="openModal">Request Consulting</a></div>
+    <div class="card"><h3>Speaking</h3><p>I simplify complex topics for live audiences, from conference panels to guest lectures and online sessions.</p><a href="#" class="btn">Book Speaking</a></div>
+    <div class="card"><h3>Collaborations</h3><p>I'm open to impactful research and policy work with analysts, economists, and institutions globally.</p><a href="#" class="btn">Propose Collaboration</a></div>
   </section>
-
-  <footer>
-    <p>&copy; 2025 Obed Nyangena | Built on GitHub</p>
-  </footer>
+  <div class="modal" id="consultModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h4>Request Consulting</h4>
+      <form action="mailto:obednyangena@outlook.com" method="post" enctype="text/plain">
+        <label>Email:</label>
+        <input type="email" value="obednyangena@outlook.com" readonly>
+        <label>Subject:</label>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <label>Message:</label>
+        <textarea name="body" rows="5" placeholder="Your message..." required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </div>
+  </div>
+  <footer><p>&copy; 2025 Obed Nyangena | Built on GitHub</p></footer>
+  <script>
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const modal = document.getElementById('consultModal');
+    openModal.onclick = () => modal.style.display = 'flex';
+    closeModal.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+  </script>
 </body>
 </html>
