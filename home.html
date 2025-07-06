@@ -2,205 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Obed Nyangena | Data Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: #d7ecff;
       color: #083b66;
+      margin: 0;
+      padding: 0;
     }
-    header {
-      background-color: #083b66;
-      color: #fff;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 { margin: 0; font-size: 1.8rem; font-weight: 800; }
-    nav a {
-      color: #fff;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover { opacity: 0.7; }
     .hero {
       text-align: center;
       padding: 6rem 2rem;
-      background: #fff;
+      background-color: #ffffff;
       border-radius: 12px;
       max-width: 800px;
       margin: 3rem auto;
       box-shadow: 6px 6px 0 #083b66;
     }
-    .sections {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 2rem; padding: 4rem 2rem;
+    .hero h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      flex-wrap: wrap;
     }
     .card {
-      background: #fff; border-radius: 12px; padding: 2rem;
-      max-width: 320px; box-shadow: 4px 4px 0 #083b66;
-      border-top: 4px solid #083b66; text-align: left;
+      background: #ffffff;
+      border: 2px solid #083b66;
+      border-radius: 8px;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 4px 4px 0 #083b66;
     }
-    .card h3 { font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; }
-    .btn {
-      display: inline-block; margin-top: 1rem; padding: 0.6rem 1.2rem;
-      background: #083b66; color: #fff; text-decoration: none;
-      border-radius: 4px; font-weight: 600;
+    .card h3 {
+      margin-top: 0;
     }
-    .btn:hover { opacity: 0.85; }
-    footer {
-      text-align: center; padding: 2rem; background: #083b66;
-      color: #fff; font-size: 0.9rem;
+    .card p {
+      font-size: 1rem;
+      margin: 1rem 0;
     }
-    .modal {
-      display: none; position: fixed; z-index: 1000;
-      left: 0; top: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5); justify-content: center; align-items: center;
+    .card button {
+      background: #083b66;
+      color: #ffffff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
     }
-    .modal-content {
-      background: #fff; padding: 2rem; border-radius: 8px;
-      max-width: 400px; width: 100%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    form {
+      display: none;
+      background: #ffffff;
+      border: 2px solid #083b66;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin: 2rem auto;
+      box-shadow: 4px 4px 0 #083b66;
     }
-    .modal-content h2 { margin-top: 0; color: #083b66; }
-    .modal-content label { display: block; margin: 0.5rem 0 0.2rem; }
-    .modal-content input, .modal-content textarea {
-      width: 100%; padding: 0.5rem; margin-bottom: 1rem;
-      border: 1px solid #ccc; border-radius: 4px;
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
-    .modal-content button {
-      background: #083b66; color: #fff; border: none;
-      padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #083b66;
+      border-radius: 4px;
+      font-size: 1rem;
     }
-    .modal-content .close {
-      background: #ddd; color: #333; float: right; border: none;
-      margin-top: -1rem; margin-right: -1rem; padding: 0.5rem;
-      border-radius: 50%; cursor: pointer;
+    button.submit-btn {
+      background: #083b66;
+      color: #ffffff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
     }
-    .confirmation { color: green; font-size: 0.9rem; }
+    .success-message {
+      color: green;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Obed Nyangena</h1>
-    <nav>
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="toolset.html">Toolset</a>
-      <a href="projects.html">Projects</a>
-      <a href="publications.html">Publications</a>
-      <a href="letters.html">Letters</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
   <section class="hero">
     <h2>In an economy shaped by data,<br />I uncover trends and patterns that matter.</h2>
     <p>Data Analyst | Policy Consultant | Visual Storyteller</p>
   </section>
 
-  <section class="sections">
+  <div class="cards">
     <div class="card">
       <h3>Consulting</h3>
-      <p>Data-driven economic and policy consulting for organizations and government.</p>
-      <a href="#" class="btn" onclick="openModal('consulting')">Request Consulting</a>
+      <p>Data-driven economic and policy consulting for organizations, governments, and nonprofits.</p>
+      <button onclick="showForm('consultingForm')">Request Consulting</button>
     </div>
     <div class="card">
       <h3>Speaking</h3>
-      <p>Clear, engaging talks that make complex topics simple for diverse audiences.</p>
-      <a href="#" class="btn" onclick="openModal('speaking')">Book Speaking</a>
+      <p>Clear, engaging presentations and talks on data, economics, and policy topics for diverse audiences.</p>
+      <button onclick="showForm('speakingForm')">Book Speaking</button>
     </div>
     <div class="card">
-      <h3>Collaboration</h3>
-      <p>Partner with me on impactful research, data work, or policy analysis globally.</p>
-      <a href="#" class="btn" onclick="openModal('collab')">Propose Collaboration</a>
-    </div>
-  </section>
-
-  <!-- Modals -->
-  <div id="modal-consulting" class="modal">
-    <div class="modal-content">
-      <button class="close" onclick="closeModal('consulting')">&times;</button>
-      <h2>Request Consulting</h2>
-      <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="return confirmSend(event)">
-        <input type="hidden" name="_subject" value="Consulting Request">
-        <label>Your Email</label>
-        <input type="email" name="email" required>
-        <label>Message</label>
-        <textarea name="message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-        <div class="confirmation" id="confirm-consulting"></div>
-      </form>
+      <h3>Collaborations</h3>
+      <p>Open to impactful research and policy projects with analysts, economists, and global institutions.</p>
+      <button onclick="showForm('collabForm')">Propose Collaboration</button>
     </div>
   </div>
 
-  <div id="modal-speaking" class="modal">
-    <div class="modal-content">
-      <button class="close" onclick="closeModal('speaking')">&times;</button>
-      <h2>Book Speaking</h2>
-      <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="return confirmSend(event)">
-        <input type="hidden" name="_subject" value="Speaking Booking">
-        <label>Your Email</label>
-        <input type="email" name="email" required>
-        <label>Message</label>
-        <textarea name="message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-        <div class="confirmation" id="confirm-speaking"></div>
-      </form>
-    </div>
-  </div>
+  <form id="consultingForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'consultingSuccess')">
+    <h2>Request Consulting</h2>
+    <label>Your Email:</label>
+    <input type="email" name="email" required>
+    <label>Subject:</label>
+    <input type="text" name="subject" required>
+    <label>Message:</label>
+    <textarea name="message" required></textarea>
+    <button class="submit-btn" type="submit">Send</button>
+    <p id="consultingSuccess" class="success-message"></p>
+  </form>
 
-  <div id="modal-collab" class="modal">
-    <div class="modal-content">
-      <button class="close" onclick="closeModal('collab')">&times;</button>
-      <h2>Propose Collaboration</h2>
-      <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" onsubmit="return confirmSend(event)">
-        <input type="hidden" name="_subject" value="Collaboration Proposal">
-        <label>Your Email</label>
-        <input type="email" name="email" required>
-        <label>Message</label>
-        <textarea name="message" rows="5" required></textarea>
-        <button type="submit">Send</button>
-        <div class="confirmation" id="confirm-collab"></div>
-      </form>
-    </div>
-  </div>
+  <form id="speakingForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'speakingSuccess')">
+    <h2>Book Speaking</h2>
+    <label>Your Email:</label>
+    <input type="email" name="email" required>
+    <label>Subject:</label>
+    <input type="text" name="subject" required>
+    <label>Message:</label>
+    <textarea name="message" required></textarea>
+    <button class="submit-btn" type="submit">Send</button>
+    <p id="speakingSuccess" class="success-message"></p>
+  </form>
 
-  <footer>
-    <p>&copy; 2025 Obed Nyangena | Built on GitHub</p>
-  </footer>
+  <form id="collabForm" action="https://formspree.io/f/xovwzykp" method="POST" onsubmit="handleSubmit(event, 'collabSuccess')">
+    <h2>Propose Collaboration</h2>
+    <label>Your Email:</label>
+    <input type="email" name="email" required>
+    <label>Subject:</label>
+    <input type="text" name="subject" required>
+    <label>Message:</label>
+    <textarea name="message" required></textarea>
+    <button class="submit-btn" type="submit">Send</button>
+    <p id="collabSuccess" class="success-message"></p>
+  </form>
 
   <script>
-    function openModal(id) {
-      document.getElementById('modal-' + id).style.display = 'flex';
+    function showForm(formId) {
+      document.getElementById('consultingForm').style.display = 'none';
+      document.getElementById('speakingForm').style.display = 'none';
+      document.getElementById('collabForm').style.display = 'none';
+      document.getElementById(formId).style.display = 'block';
     }
-    function closeModal(id) {
-      document.getElementById('modal-' + id).style.display = 'none';
-    }
-    function confirmSend(e) {
-      e.preventDefault();
-      const form = e.target;
-      const confirmBox = form.querySelector('.confirmation');
+    function handleSubmit(event, successId) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
       fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       }).then(response => {
         if (response.ok) {
-          confirmBox.textContent = 'Message sent! Obed will reply soon.';
+          document.getElementById(successId).innerText = "Message has been sent successfully. Obed will be reverting soon.";
           form.reset();
-        } else {
-          confirmBox.textContent = 'Oops! Something went wrong.';
         }
-      }).catch(error => {
-        confirmBox.textContent = 'Network error.';
       });
-      return false;
     }
   </script>
 </body>
